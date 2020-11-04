@@ -4,7 +4,6 @@ output:
   html_document:
     toc: true
     toc_float: true
-    theme: cerulean
 ---
 
 # Hi everyone, I'm Michelle Lui
@@ -14,3 +13,6 @@ output:
 # What I'm up to right now
 
 I'm currently a second year MPH student in Epidemiology at Columbia's Mailman School of Public Health, with a certificate in Applied Biostatistics. My research interests lie in infectious disease and program implementation/evaluation in low-resource settings. I'm currently interning at the New York City Department of Health and Mental Hygiene in the Bureau of Communicable Disease as a data analysis intern. After graduating Mailman, I am eventually planning to go to back to school to get my PhD in Epidemiology.
+
+# Academic and Professional Experiences
+[Michelle Lui Resume](about.html)
