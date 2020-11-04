@@ -26,9 +26,35 @@ instacart =
     reordered == 0,
     order_hour_of_day == 8,
     order_dow == 6) %>%
-  select(reordered, user_id, order_dow, order_hour_of_day, product_name, aisle, department) 
+  select(add_to_cart_order, reordered, user_id, order_dow, order_hour_of_day, product_name, aisle, department, days_since_prior_order) 
 ```
 
 #Plotly Plots
 
-##Scatterplot
+## scatter plot
+
+```{r}
+instacart %>%
+  mutate(text_label = str_c("Product:", product_name, "\nAisle:", aisle)) %>%
+  plot_ly(
+    x = ~days_since_prior_order, y = ~add_to_cart_order, color = ~aisle, text = ~text_label, alpha = .5,
+    type = "scatter", mode = "markers", colors = "viridis")
+```
+
+
+## box plot
+
+```{r}
+instacart %>%
+  plot_ly(x = ~aisle, y = ~add_to_cart_order, color = ~department, type = "box", colors = "viridis")
+```
+
+## bar plot
+
+```{r}
+instacart %>%
+  count(product_name) %>%
+  mutate(product_name = fct_reorder(product_name, n)) %>%
+  plot_ly(x = ~product_name, y = ~n, type = "bar")
+```
+
