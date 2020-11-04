@@ -11,7 +11,7 @@
 
 
 
-<title>Michelle Lui’s website</title>
+<title>Plotly graphs</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -379,30 +379,47 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Michelle Lui’s website</h1>
+<h1 class="title toc-ignore">Plotly graphs</h1>
 
 </div>
 
 
-<div id="hi-everyone-im-michelle-lui" class="section level1">
-<h1>Hi everyone, I’m Michelle Lui</h1>
-<p><img src="images/portrait.JPEG" /></p>
-</div>
-<div id="what-im-up-to-right-now" class="section level1">
-<h1>What I’m up to right now</h1>
-<p>I’m currently a second year MPH student in Epidemiology at Columbia’s Mailman School of Public Health, with a certificate in Applied Biostatistics. My research interests lie in infectious disease and program implementation/evaluation in low-resource settings. I’m currently interning at the New York City Department of Health and Mental Hygiene in the Bureau of Communicable Disease as a data analysis intern. After graduating Mailman, I am eventually planning to go to back to school to get my PhD in Epidemiology.</p>
-</div>
-<div id="academic-and-professional-experiences" class="section level1">
-<h1>Academic and Professional Experiences</h1>
-<p><a href="about.html">Michelle Lui Resume</a></p>
-</div>
-<div id="professional-network-links" class="section level1">
-<h1>Professional Network Links</h1>
-<ul>
-<li><a href="https://www.decipherpubhealth.org/">CIPHER</a></li>
-<li><a href="https://www1.nyc.gov/site/doh/providers/health-topics/zoonotic-and-vectorborne.page">NYCDOHMH ZIVDU</a></li>
-</ul>
-</div>
+<p>#Graphs</p>
+<p>Load Data</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
+## ✓ tibble  3.0.3     ✓ dplyr   1.0.2
+## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
+<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(p8105.datasets)
+library(plotly)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;plotly&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     last_plot</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     layout</code></pre>
+<p>Data Wrangling</p>
+<pre class="r"><code>data(&quot;instacart&quot;)
+
+instacart = 
+  instacart %&gt;%
+  filter(
+    reordered == 0,
+    order_hour_of_day == 8,
+    order_dow == 6) %&gt;%
+  select(reordered, user_id, order_dow, order_hour_of_day, product_name, aisle, department) </code></pre>
+<p>#Plotly Plots</p>
+<p>##Scatterplot</p>
 
 
 
