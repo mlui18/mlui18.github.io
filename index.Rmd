@@ -15,7 +15,7 @@ output:
 I'm currently a second year MPH student in Epidemiology at Columbia's Mailman School of Public Health, with a certificate in Applied Biostatistics. My research interests lie in infectious disease and program implementation/evaluation in low-resource settings. I'm currently interning at the New York City Department of Health and Mental Hygiene in the Bureau of Communicable Disease as a data analysis intern. After graduating Mailman, I am eventually planning to go to back to school to get my PhD in Epidemiology.
 
 # Academic and Professional Experiences
-[Michelle Lui Resume](about.html)
+* [Michelle Lui Resume](about.html)
 
 # Professional Network Links
 * [CIPHER](https://www.decipherpubhealth.org/)

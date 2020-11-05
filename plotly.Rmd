@@ -31,30 +31,39 @@ instacart =
 
 #Plotly Plots
 
-## scatter plot
+## Scatter plot
 
 ```{r}
 instacart %>%
   mutate(text_label = str_c("Product:", product_name, "\nAisle:", aisle)) %>%
   plot_ly(
     x = ~days_since_prior_order, y = ~add_to_cart_order, color = ~aisle, text = ~text_label, alpha = .5,
-    type = "scatter", mode = "markers", colors = "viridis")
+    type = "scatter", mode = "markers", colors = "viridis") %>%
+  layout(title = 'Days since prior order versus Order added to cart',
+         xaxis = list(title = 'Days since prior order'),
+         yaxis = list(title = 'Add to cart order'))
 ```
 
 
-## box plot
+## Box plot
 
 ```{r}
 instacart %>%
-  plot_ly(x = ~aisle, y = ~add_to_cart_order, color = ~department, type = "box", colors = "viridis")
+  plot_ly(x = ~aisle, y = ~add_to_cart_order, color = ~department, type = "box", colors = "viridis") %>%
+  layout(title = 'Order that product was added to cart by aisle ',
+      xaxis = list(title = 'Aisle'),
+      yaxis = list(title = 'Add to cart order'))
 ```
 
-## bar plot
+## Bar plot
 
 ```{r}
 instacart %>%
-  count(product_name) %>%
-  mutate(product_name = fct_reorder(product_name, n)) %>%
-  plot_ly(x = ~product_name, y = ~n, type = "bar")
+  count(department) %>%
+  mutate(department = fct_reorder(department, n)) %>%
+  plot_ly(x = ~department, y = ~n, color = ~department, type = "bar", colors = "viridis") %>%
+  layout(title = 'Amount ordered by Department ',
+    xaxis = list(title = 'Department'),
+    yaxis = list(title = 'Amount ordered'))
 ```
 
